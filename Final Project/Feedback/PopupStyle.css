@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: #483C32;
+}
+.rating-css {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #141413;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInUp 0.5s ease-out;
+}
+.rating-css div {
+    color: #FFECD1;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px, 0;
+}
+.rating-css input {
+    display: flex;
+}
+.rating-css input + label {
+    font-size: 60px;
+    text-shadow: 1px 1px 0 #483C32;
+    cursor: pointer;
+}
+.rating-css input:checked + label ~ label {
+    color: #FFECD1;
+}
+.rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+.star-icon {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.star-icon input {
+    display: none;
+}
+
+.star-icon label {
+    font-size: 1.5em;
+    color: #483C32;
+    cursor: pointer;
+    margin: 0 0.1em;
+}
+
+.star-icon input:checked ~ label {
+    color: #FFECD1;
+}
+.submit-button {
+    background-color: #483C32;
+    color: #FFECD1;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.submit-button:hover {
+    background-color: #FFECD1;
+    color: #483C32;
+}
+.feedback-button {
+    transform: rotate(90deg) translateX(0px);
+    display: block;
+    background-color: #483C32;
+    color: #FFECD1;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+    position: absolute; right: 0;
+    border: 1px solid #fff;
+}
+
+.feedback-button:hover {
+    background-color: black;
+}
+.show-popup {
+    opacity: 1;
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}

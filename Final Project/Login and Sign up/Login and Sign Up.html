@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="Style Login and Sign up.css">
+  <title>Login and Sign Up</title>
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="form-container sign-in-container">
+      <form action="#" method="post">
+        <p class="go-to-login">Are you a manager, click here to login</p>
+        <button onclick="showManagerLogin()">Manager Login</button>
+        <h1 class="header">Login</h1>
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <button type="submit">Login</button>
+        <p class="go-to-signup" id="goToSignUp">Don't have an account? Go to Sign Up</p>
+      </form>
+    </div>
+    <div class="form-container manager-login-container" style="display: none;">
+      <form action="#" method="post">
+        <h1 class="header">Manager Login</h1>
+        <input type="text" placeholder="Manager ID" name="managerID" required>
+        <input type="password" placeholder="Manager Password" name="managerPassword" required>
+        <button type="submit">Login as Manager</button>
+        <p class="go-to-signup" id="goToSignUp">Don't have a manager account? Go to Manager Sign Up</p>
+      </form>
+    </div>
+    <div class="form-container sign-up-container">
+      <form action="#" method="get">
+        <h1 class="header">Create Account</h1>
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <button type="submit">Sign Up</button>
+        <p class="go-to-login" id="goToLogin">Already have an account? Go to Login</p>
+      </form>
+    </div>
+  </div>
+  <script src="apps.js"></script>
+</body>
+</html>
