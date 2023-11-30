@@ -18,7 +18,15 @@
             <input type="radio" name="rating" id="rating5">
             <label for="rating5" class="fas fa-star"></label>
         </div>
-        <button type="button" class="submit-button">Submit</button>
+        <button type="button" class="submit-button" onclick="showCongratsPopup()">Submit</button>
     </div>
+    <div class="congrats-popup" id="congratsPopup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="hideCongratsPopup()">&times;</span>
+            <h2>Congratulations!</h2>
+            <p>Your rating has been submitted successfully.</p>
+        </div>
+    </div>
+    <script src="popup.js"></script>
 </body>
 </html>
