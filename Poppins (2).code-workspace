@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Poppins (2)",
+			"path": "../../../Downloads/Poppins (2)"
+		},
+		{
+			"name": "Final Project CSET 120",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Final Project CSET 120"
+	}
+}
