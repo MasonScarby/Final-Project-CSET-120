@@ -30,7 +30,7 @@ justify-content: center;
 }
 
 .sign-up-container {
-left: 100%;
+left: 130%;
 width: 100%;
 }
 
@@ -76,6 +76,13 @@ color: #FFECD1;
 margin-top: 10px;
 display: inline-block;
 }
+.go-to-manager-signup,
+.go-to-manager-login {
+cursor: pointer;
+color: #FFECD1;
+margin-top: 10px;
+display: inline-block;
+}
 
 .overlay-container {
 position: absolute;
@@ -106,4 +113,9 @@ color: #FFECD1;
 }
 .manager-login-container {
     left: 30%
+}
+.manager-sign-up-container {
+    justify-content: center;
+    left: 130%;
+    width: 100%;
 }
