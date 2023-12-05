@@ -1,0 +1,29 @@
+<html>
+<head>
+  <link rel="stylesheet" href="Login.css">
+  <title>Login and Sign Up</title>
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="form-container sign-in-container">
+      <form action="#" method="post">
+        <p class="go-to-login">Are you a manager, click here to login</p>
+        <button onclick="showManagerLogin()">Manager Login</button>
+        <h1 class="header">Login</h1>
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <li><a href="/Main Menu Items/Main Menu.html"><button type="button">Login</button></a></li>
+      </form>
+    </div>
+    <div class="form-container manager-login-container" style="display: none;">
+      <form action="#" method="post">
+        <h1 class="header">Manager Login</h1>
+        <input type="text" placeholder="Manager ID" name="managerID" required>
+        <input type="password" placeholder="Manager Password" name="managerPassword" required>
+        <li><a href="/Main Menu Items/Main Menu.html"><button type="button">Login as Manager</button></a></li>
+      </form>
+    </div>
+  </div>
+  <script src="Login.js"></script>
+</body>
+</html>

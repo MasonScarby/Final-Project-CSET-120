@@ -1,0 +1,121 @@
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+background: #483C32;
+overflow: hidden;
+}
+
+.container {
+position: fixed;
+width: 100%;
+max-width: 1000px;
+height: 400px;
+perspective: 1000px;
+}
+
+.form-container {
+position: absolute;
+top: 0;
+height: 100%;
+transition: transform 0.6s;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.sign-up-container {
+left: 130%;
+width: 100%;
+}
+
+.sign-in-container {
+    margin-left: 30%;
+}
+
+.form-container form {
+width: 100%;
+max-width: 400px;
+padding: 40px;
+box-sizing: border-box;
+text-align: center;
+background: #141413;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+
+.form-container h1 {
+margin-bottom: 20px;
+}
+
+.form-container input {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+box-sizing: border-box;
+}
+
+.form-container button {
+background: #FFECD1;
+color: #141413;
+padding: 10px 15px;
+border: none;
+cursor: pointer;
+border-radius: 4px;
+}
+
+.go-to-signup,
+.go-to-login {
+cursor: pointer;
+color: #FFECD1;
+margin-top: 10px;
+display: inline-block;
+}
+.go-to-manager-signup,
+.go-to-manager-login {
+cursor: pointer;
+color: #FFECD1;
+margin-top: 10px;
+display: inline-block;
+}
+
+.overlay-container {
+position: absolute;
+top: 0;
+left: 50%;
+width: 50%;
+height: 100%;
+overflow: hidden;
+transition: transform 0.6s ease-in-out;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.overlay {
+width: 100%;
+height: 100%;
+color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.header {
+color: #FFECD1;
+}
+.manager-login-container {
+    left: 30%
+}
+.manager-sign-up-container {
+    justify-content: center;
+    left: 130%;
+    width: 100%;
+}
