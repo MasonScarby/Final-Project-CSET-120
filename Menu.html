@@ -1,0 +1,929 @@
+<html>
+<head>
+    
+    <style>
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+}
+
+.all-menus {
+margin: 0;
+padding: 0;
+background-color: #141413;
+color: white;
+font-family: Arial, sans-serif;
+box-sizing: border-box;
+width: 100%;
+height: auto;
+
+}
+
+
+.menu {
+padding: 20px;
+height: 900px;
+
+}
+
+
+.menu-heading {
+text-align: center;
+padding: 40px;
+background-color: #ffecd1; /* Dark background color */
+color: #141413; /* Gold text color */
+font-size: 20px; /* Larger font size for emphasis */
+font-family: 'Playfair Display', serif; /* Elegant serif font */
+letter-spacing: 2px; /* Increased letter spacing for a sophisticated look */
+margin-bottom: 20px; /* Add some space below the heading */
+border-bottom: 2px solid #483C32; /* Add a gold border at the bottom */
+box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+}
+
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+
+th, td {
+padding: 10px;
+text-align: left;
+height: 100px;
+}
+
+
+th {
+background-color: #141413;
+margin-bottom: 20px;
+padding: 10px;
+font-size: 10px;
+}
+
+
+.meal-photo {
+position: relative;
+background-color: #000;
+overflow: hidden;
+width: 200px; /* Adjusted width to make the boxes a bit bigger */
+height: 200px; /* Adjusted height for consistency */
+margin: 20px; /* Center-align using margin and auto */
+}
+
+@media only screen and (max-width: 900px) {
+.meal-photo {
+    width: 150px; 
+    height: 150px;
+    
+}
+.menu h3{
+    width: 150px; 
+    height: 150px;
+    font-size: .1rem;
+}
+
+}
+@media only screen and (max-width: 550px) {
+.meal-photo {
+    width: 100px;
+    height: 100px;
+    
+}
+.menu h3{
+    width: 100px; 
+    height: 100px;
+    font-size: .1rem;
+}
+
+}
+
+.meal-photo img {
+opacity: 0.7;
+width: 100%;
+height: 100%;
+object-fit: cover;
+transform: scale(1.15);
+transition: transform 0.5s, opacity 0.5s;
+}
+
+
+.meal-photo img:hover {
+opacity: 1;
+transform: scale(1.03);
+}
+
+
+.meal-photo h3 {
+color: white;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+margin: 0;
+z-index: 1;
+font-size: 25px;
+}
+
+
+tbody {
+display: flex;
+flex-wrap: wrap;
+justify-content: center; /* Center-align the items horizontally */
+}
+
+
+tr {
+width: 22%; /* Adjusted width to reduce space between items */
+box-sizing: border-box;
+margin-bottom: 10px;
+}
+
+
+td {
+padding: 10px;
+margin-bottom: 10px;
+font-size: 14px;
+position: relative;
+}
+
+
+.menu-dropdown {
+text-align: center;
+margin: 20px 0;
+}
+
+
+label {
+font-size: 18px;
+margin-right: 10px;
+}
+
+
+#menu-select {
+padding: 8px;
+font-size: 16px;
+}
+
+
+.description-card {
+display: none;
+padding: 20px;
+background-color: #483C32;
+color: white;
+position: fixed;
+max-width: 400px;
+z-index: 2;
+cursor: grab;
+top: 5%;
+}
+
+
+#description-input {
+width: 100%;
+padding: 8px;
+margin-bottom: 10px;
+}
+
+
+#close-button {
+position: absolute;
+top: 10px;
+right: 10px;
+cursor: pointer;
+color: white;
+font-size: 20px;
+}
+
+
+.user-drag-none {
+user-select: none;
+}
+
+
+.add-to-cart-button {
+display: block;
+margin-top: 15px;
+padding: 10px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+
+#price {
+font-size: 18px;
+margin-bottom: 10px;
+color: #4CAF50;
+}
+.shopping-cart {
+display: none;
+padding: 20px;
+background-color: #483C32;
+color: white;
+position: fixed;
+max-width: 400px;
+z-index: 2;
+cursor: grab;
+box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+top: 50%; /* Center the cart vertically */
+left: 50%; /* Center the cart horizontally */
+transform: translate(-50%, -50%); /* Center the cart precisely */
+}
+#cart-close-button {
+position: absolute;
+top: 10px;
+right: 10px;
+cursor: pointer;
+color: white;
+font-size: 20px;
+}
+
+
+.shopping-cart ul {
+margin-top: 10px;
+}
+
+
+.shopping-cart li {
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid #fff; /* Border between cart items */
+padding-bottom: 10px;
+}
+
+
+#total-price {
+font-size: 18px;
+margin-top: 10px;
+color: #4CAF50;
+}
+.shopping-cart .item-name {
+flex-grow: 1;
+}
+
+
+.shopping-cart .item-price {
+color: #4CAF50;
+}
+.shopping-cart li:last-child {
+border-bottom: none; /* Remove border for the last cart item */
+}
+.shopping-cart h2 {
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+.burger-menu nav{
+overflow: hidden;
+margin-right: 20px;
+display: flex;
+flex-grow: 2;
+width: 100%;
+height: 100px;
+margin-right: 100px;
+background-color: #fff;
+
+}
+
+.burger-menu li{
+float: ri;
+list-style-type: none;
+justify-content: right;
+padding: 40px;
+padding-bottom: 0;
+margin-bottom: 0;
+font-size: 40px;
+font-family: Poppins;
+
+}
+.burger-menu li{ color: #ffffff;display:inline-block; margin:0;text-transform:uppercase; }
+.burger-menu li:after {
+display:block;
+content: '';
+border-bottom: solid 3px #8a5222;  
+transform: scaleX(0);  
+transition: transform 250ms ease-in-out;
+}
+.burger-menu a{
+    text-decoration: none;
+    color: #000;
+}
+.burger-menu a:visited{
+    text-decoration: none;
+    color: #000;
+}
+.burger-menu li:hover:after { transform: scaleX(1); }
+.burger-menu h1.fromRight:after{ transform-origin:100% 50%; } 
+.burger-menu li.fromLeft:after{  transform-origin:  0% 50%; }
+
+
+    /* Add this CSS code inside the <style> tag in the head */
+        .manager-login {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 999; /* Set a high z-index to make it appear on top of other elements */
+    }
+
+    .login-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        cursor: grab; /* Set grab cursor for better user experience */
+    }
+
+    .login-box h2 {
+        margin-bottom: 20px;
+        cursor: grab; /* Set grab cursor for better user experience */
+    }
+
+    .login-box label,
+    .login-box input {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .login-box button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+
+</style>
+
+</head>
+<body>
+    <div class="burger-menu">
+        <nav>
+            <li><a href="/Main Menu Items/Menu.html"> Menu </a> </li>
+            <li><a href="/MeetTheTeam/team.html">Chefs</a></li>
+            <li><a href="/Login/Login.html">Login</a> </li>
+            <li><a href="/Sign Up/Sign Up.html">Signup</a> </li>
+            <li><a href="/Manager Login Menu/Manager Login Menu.html">Manager Login</a></li>
+        </nav>
+        
+    </div>
+    
+    <div class="manager-login" id="manager-login">
+        <div class="login-box">
+            <h2>Manager Login</h2>
+            <label for="manager-username">Username:</label>
+            <input type="text" id="manager-username" required>
+            <label for="manager-password">Password:</label>
+            <input type="password" id="manager-password" required>
+            <button onclick="managerLogin()" type="su">Login</button>
+        </div>
+    
+        
+    </div>
+    <section class="all-menus">
+        <div class="menu-heading">
+            Welcome to our culinary sanctuary, where each dish is a crafted masterpiece designed to enchant your taste buds. Our menu boasts a diverse selection, showcasing expertly prepared entrees, delectable desserts, and refreshing drinks.
+        </div>
+    <div class="menu-dropdown">
+        <label for="menu-select">Select a Menu:</label>
+        <select id="menu-select">
+            <option value="entrees">Entrees</option>
+            <option value="desserts">Desserts</option>
+            <option value="drinks">Drinks</option>
+        </select>
+    </div>
+    <section class="menu" id="entrees-menu">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="meal-photo">
+                        <img src="/Images/Grilled Salmon.png" alt="Grilled Salmon with Lemon-Dill Sauce">
+                        <h3>Grilled Salmon with Lemon-Dill Sauce</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="meal-photo">
+                        <img src="/Images/mushroom-risotto.png" alt="Mushroom and Truffle Risotto">
+                        <h3>Mushroom and Truffle Risotto</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/chicken-marsala.png" alt="Chicken Marsala">
+                        <h3>Chicken Marsala</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Thai Curry.png" alt="Vegetarian Thai Green Curry">
+                        <h3>Vegetarian Thai Green Curry</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Filet-Mignon.png" alt="Filet Mignon with Red Wine Reduction">
+                        <h3>Filet Mignon with Red Wine Reduction</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Shrimp-Scampi.png" alt="Shrimp Scampi Linguine">
+                        <h3>Shrimp Scampi Linguine</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Spinach-chx.png" alt="Spinach and Feta Stuffed Chicken Breast">
+                        <h3>Spinach and Feta Stuffed Chicken Breast</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Lasagna.png" alt="Vegetable Lasagna">
+                        <h3>Vegetable Lasagna</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Stirfry.png" alt="Beef and Broccoli Stir-Fry">
+                        <h3>Beef and Broccoli Stir-Fry</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Lobster-rav.png" alt="Lobster Ravioli with Creamy Tomato Basil Sauce">
+                        <h3>Lobster Ravioli with Tomato Basil Sauce</h3>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </section>
+        <section class="menu" id="desserts-menu" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Tiramisu.png" alt="Classic Tiramisu">
+                        <h3>Classic Tiramisu</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Lava-cake.png" alt="Molten Chocolate Lava Cake">
+                        <h3>Molten Chocolate Lava Cake</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/cheescake.png" alt="Strawberry Cheesecake">
+                        <h3>Strawberry Cheesecake</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Creme-Brulee.png" alt="Crème Brûlée">
+                        <h3>Crème Brûlée</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/apple-pie.png" alt="Warm Apple Pie with Cinnamon Ice Cream">
+                        <h3>Warm Apple Pie with Cinnamon Ice Cream</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Chocolate-fondue.png" alt="Chocolate Fondue Platter">
+                        <h3>Chocolate Fondue Platter</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/panna-cotta.png" alt="Panna Cotta with Raspberry Coulis">
+                        <h3>Panna Cotta with Raspberry Coulis</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Lime-pie.png" alt="Key Lime Pie">
+                        <h3>Key Lime Pie</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/mousse-tower.png" alt="Chocolate Mousse Tower">
+                        <h3>Chocolate Mousse Tower</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Affogato.png" alt="Affogato">
+                        <h3>Affogato</h3>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </section>
+        <section class="menu" id="drinks-menu" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Cucumber-Cooler.png" alt="Cucumber Mint Cooler">
+                        <h3>Cucumber Mint Cooler</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Mojito.png" alt="Passionfruit Mojito">
+                        <h3>Passionfruit Mojito</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Expresso-Martini.png" alt="Espresso Martini">
+                        <h3>Espresso Martini</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Berry-Smoothie.png" alt="Berry Bliss Smoothie">
+                        <h3>Berry Bliss Smoothie</h3>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td class="meal-photo">
+                        <img src="/Images/Spritzer.png" alt="Mango Basil Sparkler">
+                        <h3>Mango Basil Sparkler</h3>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <div class="description-card" id="description-card">
+        <span id="close-button" onclick="closeDescription()">&times;</span>
+        <h2 id="description-title"></h2>
+        <p id="description-text"></p>
+        <p id="price">$12.99</p> <!-- Price section -->
+        <button class="add-to-cart-button" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <div class="shopping-cart" id="shopping-cart">
+        <span id="cart-close-button" onclick="closeShoppingCart()">&times;</span>
+        <h2>Your Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="total-price"></p>
+    </div>
+    </section>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+var menuSelect = document.getElementById('menu-select');
+var descriptionCard = document.getElementById('description-card');
+var entreesMenu = document.getElementById('entrees-menu');
+var dessertsMenu = document.getElementById('desserts-menu');
+var drinksMenu = document.getElementById('drinks-menu');
+var shoppingCart = document.getElementById('shopping-cart');
+
+
+var cart = [];
+
+
+var menuData = {
+    entrees: [
+        { name: 'Grilled Salmon with Lemon-Dill Sauce', description: 'Fresh salmon fillet grilled to perfection and topped with a zesty lemon-dill sauce. Served with a side of seasonal roasted vegetables.', price: '$99.99' },
+        { name: 'Mushroom and Truffle Risotto', description: 'Creamy Arborio rice cooked with a medley of mushrooms and a touch of truffle oil. Garnished with Parmesan cheese and fresh herbs.', price: '$129.99' },
+        { name: 'Chicken Marsala', description: 'Sautéed chicken breasts in a Marsala wine reduction sauce, served with garlic mashed potatoes and sautéed green beans.', price: '$99.99' },
+        { name: 'Vegetarian Thai Green Curry', description: 'A fragrant and flavorful Thai green curry with mixed vegetables and tofu, served over jasmine rice.', price: '$20.99' },
+        { name: 'Filet Mignon with Red Wine Reduction', description: 'A tender filet mignon steak cooked to your liking, accompanied by a rich red wine reduction. Served with garlic butter asparagus.', price: '$199.99' },
+        { name: 'Shrimp Scampi Linguine', description: 'Succulent shrimp sautéed in garlic and butter, tossed with linguine and finished with fresh parsley.', price: '$129.99' },
+        { name: 'Spinach and Feta Stuffed Chicken Breast', description: 'Chicken breast stuffed with spinach and feta cheese, baked to perfection and served with quinoa pilaf.', price: '$149.99' },
+        { name: 'Vegetable Lasagna', description: 'Layers of pasta, ricotta cheese, and a variety of roasted vegetables, baked in marinara sauce.', price: '$29.99' },
+        { name: 'Beef and Broccoli Stir-Fry', description: 'Sliced beef and broccoli florets stir-fried in a savory soy-based sauce, served over steamed jasmine rice.', price: '$99.99' },
+        { name: 'Lobster Ravioli with Creamy Tomato Basil Sauce', description: 'Lobster-filled ravioli served with a creamy tomato and basil sauce, garnished with Parmesan cheese.', price: '$119.99' },
+    ],
+    desserts: [
+        { name: 'Classic Tiramisu', description: 'Layers of coffee-soaked ladyfingers and mascarpone cream, dusted with cocoa powder.', price: '$19.99' },
+        { name: 'Molten Chocolate Lava Cake', description: 'A warm and gooey chocolate cake with a molten chocolate center, served with a scoop of vanilla bean ice cream.', price: '$24.99' },
+        { name: 'Strawberry Cheesecake', description: 'Creamy New York-style cheesecake topped with fresh strawberry compote.', price: '$21.99' },
+        { name: 'Crème Brûlée', description: 'Vanilla bean custard with a perfectly caramelized sugar crust.', price: '$22.99' },
+        { name: 'Warm Apple Pie with Cinnamon Ice Cream', description: 'A classic apple pie with a buttery crust, served warm and accompanied by a scoop of cinnamon-infused ice cream.', price: '$18.99' },
+        { name: 'Chocolate Fondue Platter', description: 'A selection of fresh fruits, marshmallows, and cake bites served with a rich chocolate fondue.', price: '$29.99' },
+        { name: 'Panna Cotta with Raspberry Coulis', description: 'Silky vanilla bean panna cotta topped with a tart raspberry coulis.', price: '$26.99' },
+        { name: 'Key Lime Pie', description: 'A tangy and refreshing key lime pie with a graham cracker crust.', price: '$20.99' },
+        { name: 'Chocolate Mousse Tower', description: 'Layers of velvety chocolate mousse served in a tall tower, garnished with chocolate shavings.', price: '$27.99' },
+        { name: 'Affogato', description: 'Vanilla gelato or ice cream drowned in a shot of hot espresso, creating a delightful combination of hot and cold.', price: '$16.99' },
+    ],
+    drinks: [
+        { name: 'Cucumber Mint Cooler', description: 'Refreshing cucumber and mint infused water with a splash of lime juice.', price: '$14.99' },
+        { name: 'Passionfruit Mojito', description: 'Fresh mango puree mixed with basil-infused simple syrup and sparkling water.', price: '$16.99' },
+        { name: 'Espresso Martini', description: 'A delightful blend of vodka, coffee liqueur, and freshly brewed espresso, served with a coffee bean garnish.', price: '$18.99' },
+        { name: 'Berry Bliss Smoothie', description: 'A blend of mixed berries, Greek yogurt, and a touch of honey for a delicious and healthy treat.', price: '$15.99' },
+        { name: 'Mango Basil Sparkler', description: 'Fresh mango puree mixed with basil-infused simple syrup and sparkling water.', price: '$17.99' },
+    ]
+};
+
+
+var isDragging = false;
+var offset = { x: 0, y: 0 };
+
+
+menuSelect.addEventListener('change', function () {
+    var selectedMenu = menuSelect.value;
+
+
+    entreesMenu.style.display = 'none';
+    dessertsMenu.style.display = 'none';
+    drinksMenu.style.display = 'none';
+
+
+    if (selectedMenu === 'entrees') {
+        entreesMenu.style.display = 'block';
+    } else if (selectedMenu === 'desserts') {
+        dessertsMenu.style.display = 'block';
+    } else if (selectedMenu === 'drinks') {
+        drinksMenu.style.display = 'block';
+    }
+});
+
+
+function showModal(menuItem) {
+    document.getElementById('description-title').innerText = menuItem.name;
+    document.getElementById('description-text').innerText = menuItem.description;
+    document.getElementById('price').innerText = `Price: ${menuItem.price || "Not specified"}`;
+
+
+    descriptionCard.style.display = 'block';
+    descriptionCard.classList.add('user-drag-none');
+}
+
+
+window.closeDescription = function () {
+    descriptionCard.style.display = 'none';
+};
+
+
+descriptionCard.addEventListener('mousedown', function (e) {
+    isDragging = true;
+    offset = { x: e.clientX - descriptionCard.offsetLeft, y: e.clientY - descriptionCard.offsetTop };
+    descriptionCard.style.cursor = 'grabbing';
+});
+
+
+document.addEventListener('mousemove', function (e) {
+    if (!isDragging) {
+        if (e.target !== descriptionCard && !descriptionCard.contains(e.target)) {
+            clearSelection();
+        }
+        return;
+    }
+
+
+    var x = e.clientX - offset.x;
+    var y = e.clientY - offset.y;
+
+
+    x = Math.max(0, Math.min(x, window.innerWidth - descriptionCard.offsetWidth));
+    y = Math.max(0, Math.min(y, window.innerHeight - descriptionCard.offsetHeight));
+
+
+    descriptionCard.style.left = x + 'px';
+    descriptionCard.style.top = y + 'px';
+});
+
+
+document.addEventListener('mouseup', function () {
+    isDragging = false;
+    descriptionCard.style.cursor = 'grab';
+});
+
+
+var mealPhotos = document.querySelectorAll('.meal-photo img');
+
+
+mealPhotos.forEach(function (photo) {
+    photo.addEventListener('click', function () {
+        var menuItemName = this.alt;
+        var menuItem = menuData[menuSelect.value].find(item => item.name === menuItemName);
+        showModal(menuItem);
+    });
+});
+
+
+window.addToCart = function () {
+    var addToCartButton = document.querySelector('.add-to-cart-button');
+
+    var selectedMenu = menuSelect.value;
+    var selectedItem = menuData[selectedMenu].find(item => item.name === document.getElementById('description-title').innerText);
+
+    cart.push(selectedItem);
+    updateShoppingCart();
+
+    addToCartButton.innerText = 'Item Added!';
+    addToCartButton.style.backgroundColor = '#28a745';
+    addToCartButton.disabled = true;
+
+    setTimeout(function () {
+        addToCartButton.innerText = 'Add to Cart';
+        addToCartButton.style.backgroundColor = '';
+        addToCartButton.disabled = false;
+    }, 3000);
+};
+
+
+window.closeShoppingCart = function () {
+    shoppingCart.style.display = 'none';
+};
+
+
+var isCartDragging = false;
+var cartOffset = { x: 0, y: 0 };
+
+
+shoppingCart.addEventListener('mousedown', function (e) {
+    isCartDragging = true;
+    cartOffset = { x: e.clientX - shoppingCart.offsetLeft, y: e.clientY - shoppingCart.offsetTop };
+    shoppingCart.style.cursor = 'grabbing';
+});
+
+
+document.addEventListener('mousemove', function (e) {
+    if (!isCartDragging) return;
+
+
+    var x = e.clientX - cartOffset.x;
+    var y = e.clientY - cartOffset.y;
+
+
+    x = x - shoppingCart.offsetWidth / 2;
+    y = y - shoppingCart.offsetHeight / 2;
+
+
+    shoppingCart.style.left = x + 'px';
+    shoppingCart.style.top = y + 'px';
+});
+
+
+document.addEventListener('mouseup', function () {
+    isCartDragging = false;
+    shoppingCart.style.cursor = 'grab';
+});
+
+
+function updateShoppingCart() {
+    var cartItemsList = document.getElementById('cart-items');
+    var totalPriceElement = document.getElementById('total-price');
+    
+    cartItemsList.innerHTML = '';
+    
+    cart.forEach((item, index) => {
+        var listItem = document.createElement('li');
+        listItem.textContent = item.name;
+
+
+        var removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.className = 'remove-button';
+        removeButton.onclick = function () {
+            removeItemFromCart(index);
+        };
+
+
+        listItem.appendChild(removeButton);
+        cartItemsList.appendChild(listItem);
+    });
+    
+    var totalPrice = cart.reduce((total, item) => total + parseFloat(item.price.replace('$', '')), 0);
+    totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+    
+    shoppingCart.style.display = 'block';
+}
+
+
+function removeItemFromCart(index) {
+    cart.splice(index, 1);
+    updateShoppingCart();
+}
+
+
+function clearSelection() {
+    if (window.getSelection) {
+        window.getSelection().removeAllRanges();
+    } else if (document.selection) {
+        document.selection.empty();
+    }
+}
+function checkout() {
+        var totalPrice = calculateTotalPrice();
+        localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+        window.location.href = '/Payment/Payment.html';
+    }
+
+    function calculateTotalPrice() {
+        var totalPrice = cart.reduce((total, item) => total + parseFloat(item.price.replace('$', '')), 0);
+        return totalPrice.toFixed(2);
+    }
+
+    var checkoutButton = document.createElement('button');
+    checkoutButton.textContent = 'Checkout';
+    checkoutButton.className = 'checkout-button';
+    checkoutButton.onclick = function () {
+        checkout();
+    };
+
+    shoppingCart.appendChild(checkoutButton);
+});
+
+var managerLoginBox = document.getElementById('manager-login');
+    var loginBoxHeader = document.querySelector('.login-box h2');
+
+    loginBoxHeader.addEventListener('mousedown', function (e) {
+        isDragging = true;
+        offset = { x: e.clientX - managerLoginBox.offsetLeft, y: e.clientY - managerLoginBox.offsetTop };
+        managerLoginBox.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', function (e) {
+        if (!isDragging) return;
+
+        var x = e.clientX - offset.x;
+        var y = e.clientY - offset.y;
+
+        x = Math.max(0, Math.min(x, window.innerWidth - managerLoginBox.offsetWidth));
+        y = Math.max(0, Math.min(y, window.innerHeight - managerLoginBox.offsetHeight));
+
+        managerLoginBox.style.left = x + 'px';
+        managerLoginBox.style.top = y + 'px';
+    });
+
+    document.addEventListener('mouseup', function () {
+        isDragging = false;
+        managerLoginBox.style.cursor = 'grab';
+    });
+
+    function showManagerLogin() {
+        managerLoginBox.style.display = 'flex';
+    }
+
+    function closeManagerLogin() {
+        managerLoginBox.style.display = 'none';
+    }
+
+    function showMarkUnavailableOptions() {
+        // Implement the logic to display options to mark foods as unavailable
+        // For example, you can show checkboxes next to each food item
+        // and allow the manager to mark them as unavailable
+        // Update your HTML and JavaScript accordingly
+    }
+    </script>
+    </body>
+    </html>
