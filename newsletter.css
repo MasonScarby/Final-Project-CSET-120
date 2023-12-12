@@ -1,0 +1,35 @@
+/* newsletter.css */
+@import url('https://fonts.googleleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(138, 71, 16);
+    background: -webkit-linear-gradient(to right, orange, rgb(217, 144, 9), rgb(163, 115, 27));
+    background: linear-gradient(to right, orange, rgb(217, 144, 9), rgb(163, 115, 27));
+}
+
+.form{
+    width: 500px;
+    padding: 6px;
+
+}
+
+input{
+    width: 100%;
+    padding: 6px;
+    outline: none;
+    border: none;
+    margin: 6px 0px;
+}

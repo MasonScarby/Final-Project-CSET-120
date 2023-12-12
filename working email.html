@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter</title>
+    <link rel="stylesheet" href="newsletter.css">
+</head>
+<body>
+    
+    <div class="form">
+      
+        <h1>Send me an email</h1>
+        <form method="post">
+            <input type="text" placeholder="Name Here" id="name" autocomplete="off">
+            <input type="email" placeholder="Email" id="email" autocomplete="off">
+            <input type="text" placeholder="Subject" id="subject" autocomplete="off">
+            <textarea id="message" placeholder="Message" cols="30" rows="10"></textarea>
+            <button id="btn">Send</button>
+        </form>
+        <a class="rate-link" href="/Main Menu Items/Main Menu.html">Click here to Continue</a>
+    </div>
+    
+</body>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click', function(e){
+        e.preventDefault();
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+        var body = 'name: ' + name + '<br/> email: ' + email + '<br/> subject: ' +
+                   subject + '<br/> message: ' + message;
+        Email.send({
+          SecureToken: "be599855-15ea-41b0-9927-0d4127ee2a13",
+            To : 'madoncs522@gmail.com',
+            From : email,
+            Subject : subject,
+            Body : body
+        }).then(message => alert(message));
+    });
+</script>
+</html>
